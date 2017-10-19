@@ -35,4 +35,5 @@ fun todoTask5(): Nothing = TODO(
     documentation = doc5(),
     references = { getPattern(); month })
 
-fun task5(): String = todoTask5()
+// TODO I don't know regex well enough to tackle this...
+fun task5(): String = """\d{2}\.\d{2}\.\d{4}"""
