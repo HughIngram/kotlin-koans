@@ -15,25 +15,38 @@ fun example2(list: List<Int>) {
 
 fun Customer.isFrom(city: City): Boolean {
     // Return true if the customer is from the given city
-    todoCollectionTask()
+    return this.city == city
 }
 
 fun Shop.checkAllCustomersAreFrom(city: City): Boolean {
     // Return true if all customers are from the given city
-    todoCollectionTask()
+//    todoCollectionTask()
+    /*
+    return (customers.filter { it.city == city }.toSet().size
+        == customers.size)
+    */
+    /*
+    for (c: Customer in customers) {
+        if (c.city != city) {
+            return false
+        }
+    }
+    */
+    val predicate: (Customer) -> Boolean = { it.city == city }
+    return this.customers.all(predicate)
 }
 
 fun Shop.hasCustomerFrom(city: City): Boolean {
     // Return true if there is at least one customer from the given city
-    todoCollectionTask()
+    return this.customers.any { it.city == city }
 }
 
 fun Shop.countCustomersFrom(city: City): Int {
     // Return the number of customers from the given city
-    todoCollectionTask()
+    return this.customers.count { it.city == city }
 }
 
 fun Shop.findFirstCustomerFrom(city: City): Customer? {
     // Return the first customer who lives in the given city, or null if there is none
-    todoCollectionTask()
+    return customers.firstOrNull { it.city == city }
 }
