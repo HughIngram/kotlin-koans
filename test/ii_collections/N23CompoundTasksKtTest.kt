@@ -5,6 +5,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class N23CompoundTasksKtTest {
+
     @Test fun testGetCustomersWhoOrderedProduct() {
         assertEquals(setOf(customers[reka], customers[asuka]), shop.getCustomersWhoOrderedProduct(idea))
     }
